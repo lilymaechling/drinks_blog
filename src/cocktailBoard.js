@@ -18,7 +18,7 @@ class CocktailBoard extends Component{
     getCocktails = (allCocktails) => {
         this.setState({cocktails: allCocktails});
     }
-    
+
     newCocktailNameFunction = (event) => {
         this.setState({newCocktailName: event.target.value});
     }
@@ -69,21 +69,6 @@ class CocktailBoard extends Component{
           }
         )
         }
-        // if(this.state.cocktails!=null){
-        //     for (let i = 0; i < Object.keys(allCocktails).length; i += 1){
-        //     const currentKey = Object.keys(allCocktails)[i];
-        //     const info = allCocktails[currentKey];
-        //     console.log(info)
-        //     allCocktails.push( <CocktailPosting save={this.save} 
-        //                             delete={this.delete} 
-        //                             name={info.cocktailName} 
-        //                             recipe={info.cocktailRecipe} 
-        //                             image={info.cocktailImage} 
-        //                             id={i}/>)
-        
-        //     }
-            
-        // }
         console.log("all cocktails")
         console.log(allCocktails)
         return (
