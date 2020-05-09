@@ -20,10 +20,7 @@ class CocktailPosting extends Component {
     }
 
     submit = () => {
-      var newName = {
-        name:this.state.newTitle
-      }
-      this.props.save(this.props.id, newName)
+      this.props.save(this.props.id, this.state.newTitle)
       this.setState({editing: false})
     }
 
@@ -33,7 +30,6 @@ class CocktailPosting extends Component {
         editBoxOrButton = (
           <div className="editbox">
             <input value={this.state.newTitle} onChange={this.changeNewTitle}/>
-            text here
             <button onClick={this.submit} className="submitBox"> Submit </button>
           </div>
         )
@@ -49,9 +45,11 @@ class CocktailPosting extends Component {
             <div className="drinkRecipe">
             {this.props.recipe} 
             </div>
-            <img src={this.props.image} alt="" className="drinkImage"/>
-            <button onClick={this.deletePosting} className="deleteButton">Delete</button>
-            {editBoxOrButton}
+            <img src={this.props.image} alt="" className="drinkImage" width='100px'/>
+            <div className="editOrDeleteButtons">
+              {editBoxOrButton} 
+              <button onClick={this.deletePosting} className="deleteButton">Delete</button>
+            </div>
         </div> 
       );
   }

@@ -98,3 +98,52 @@ input {
   font-size: 24px;
 
 } 
+
+.allPostings {
+  position: absolute;
+  top: 40%;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.posting {
+  background-color: grey;
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  height: 300px;
+  justify-content: space-around;
+  border-radius: 25px;
+}
+
+.drinkName {
+  position: absolute;
+  height: 10%;
+  width: 50%;
+  top: 5%;
+
+  font-family: PT Sans;
+  font-weight: bolder;
+  font-size: 25px;
+  color: white;
+}
+
+.drinkRecipe {
+  position: absolute;
+  top: 60%;
+
+  font-family: PT Sans;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+}
+
+.drinkImage {
+  position: absolute;
+  top: 20%
+}
+
+.editOrDeleteButtons {
+  position: absolute;
+  top: 70%;
+}

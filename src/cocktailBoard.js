@@ -18,7 +18,7 @@ class CocktailBoard extends Component{
     getCocktails = (allCocktails) => {
         this.setState({cocktails: allCocktails});
     }
-
+    
     newCocktailNameFunction = (event) => {
         this.setState({newCocktailName: event.target.value});
     }
@@ -30,6 +30,7 @@ class CocktailBoard extends Component{
     newCocktailImageFunction = (event) => {
         this.setState({newCocktailImage: event.target.value});
     }
+
 
     delete = (id) => {
         db.removeCocktail(id);
@@ -54,33 +55,37 @@ class CocktailBoard extends Component{
 
     render() {
         let allCocktails = null;
-        // if(this.state.dogs!=null){
-        //   allDogs = Object.keys(this.state.dogs).map((id) => {
-        //   const info = this.state.dogs[id];
-        //   return <DogPosting
-        //     save={this.save}
-        //     delete={this.delete}
-        //     name={info.dogName}
-        //     breed={info.dogBreed}
-        //     dogURL={info.link}
-        //     id={id}/>
-        //   }
-        // )
-        // }
-        if(allCocktails!=null){
-            for (let i = 0; i < Object.keys(allCocktails).length; i += 1){
-            const currentKey = Object.keys(allCocktails)[i];
-            const info = allCocktails[currentKey];
-            console.log(info)
-            allCocktails.push( <CocktailPosting save={this.save} 
-                                    delete={this.delete} 
-                                    name={info.cocktailName} 
-                                    recipe={info.cocktailRecipe} 
-                                    image={info.cocktailImage} 
-                                    id={i}/>)
-        
-            }
+        if(this.state.cocktails!=null){
+          allCocktails = Object.keys(this.state.cocktails).map((id) => {
+          const info = this.state.cocktails[id];
+          console.log(info)
+          return <CocktailPosting
+            save={this.save}
+            delete={this.delete}
+            name={info.cocktailName}
+            recipe={info.cocktailRecipe}
+            image={info.cocktailImage}
+            id={id}/>
+          }
+        )
         }
+        // if(this.state.cocktails!=null){
+        //     for (let i = 0; i < Object.keys(allCocktails).length; i += 1){
+        //     const currentKey = Object.keys(allCocktails)[i];
+        //     const info = allCocktails[currentKey];
+        //     console.log(info)
+        //     allCocktails.push( <CocktailPosting save={this.save} 
+        //                             delete={this.delete} 
+        //                             name={info.cocktailName} 
+        //                             recipe={info.cocktailRecipe} 
+        //                             image={info.cocktailImage} 
+        //                             id={i}/>)
+        
+        //     }
+            
+        // }
+        console.log("all cocktails")
+        console.log(allCocktails)
         return (
             <div>
             <div className="header">
@@ -88,7 +93,7 @@ class CocktailBoard extends Component{
                 <img src={gif} className="logo" id='img2' alt="" width='80px'/>
                 <div className="top-title"> 
                     COCKTAILS by Lily
-                    <div style={{'font-size':'50px'}}>Enter your cocktail!</div>
+                    <div style={{'fontSize':'50px'}}>Enter your cocktail!</div>
                 </div>
             </div>
             <div className="inputBar">
@@ -100,7 +105,9 @@ class CocktailBoard extends Component{
                 <input placeholder="url" type="text" value={this.state.newCocktailImage} onChange={this.newCocktailImageFunction}/>
                 <button onClick={this.saveInfo}>SAVE</button>
             </div>
+            <div className="allPostings">
                 {allCocktails}
+            </div>
             </div>
         )
     }
