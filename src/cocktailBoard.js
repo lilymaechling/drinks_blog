@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import CocktailPosting from './cocktailPosting';
 import gif from './giphy-1.gif';
 import * as db from './datastore';
+import './App.css';
 
 
 class CocktailBoard extends Component{
@@ -15,23 +16,7 @@ class CocktailBoard extends Component{
     }
 
     getCocktails = (allCocktails) => {
-        console.log(allCocktails)
-        var finalCocktails = []
-        if(allCocktails!=null){
-            for (let i = 0; i < Object.keys(allCocktails).length; i += 1){
-            const currentKey = Object.keys(allCocktails)[i];
-            const info = allCocktails[currentKey];
-            console.log(info)
-            finalCocktails.push( <CocktailPosting save={this.save} 
-                                    delete={this.delete} 
-                                    name={info.cocktailName} 
-                                    recipe={info.cocktailRecipe} 
-                                    image={info.cocktailImage} 
-                                    id={i}/>)
-        
-            }
-        }
-        this.setState({cocktails: finalCocktails});
+        this.setState({cocktails: allCocktails});
     }
 
     newCocktailNameFunction = (event) => {
@@ -68,30 +53,54 @@ class CocktailBoard extends Component{
     }
 
     render() {
+        let allCocktails = null;
+        // if(this.state.dogs!=null){
+        //   allDogs = Object.keys(this.state.dogs).map((id) => {
+        //   const info = this.state.dogs[id];
+        //   return <DogPosting
+        //     save={this.save}
+        //     delete={this.delete}
+        //     name={info.dogName}
+        //     breed={info.dogBreed}
+        //     dogURL={info.link}
+        //     id={id}/>
+        //   }
+        // )
+        // }
+        if(allCocktails!=null){
+            for (let i = 0; i < Object.keys(allCocktails).length; i += 1){
+            const currentKey = Object.keys(allCocktails)[i];
+            const info = allCocktails[currentKey];
+            console.log(info)
+            allCocktails.push( <CocktailPosting save={this.save} 
+                                    delete={this.delete} 
+                                    name={info.cocktailName} 
+                                    recipe={info.cocktailRecipe} 
+                                    image={info.cocktailImage} 
+                                    id={i}/>)
+        
+            }
+        }
         return (
-            <div className=".boarddiv">
-                <p className="top-title"> COCKTAILS by Lily </p>
-                <img src={gif} className="img1" alt=""/>
-                <img src={gif} className="img2" alt=""/>
-                <p className="sub-title">Enter your cocktail!</p>
-                <div className="inputBar">
-                    
-                    Enter Name:   
-                    <input placeholder="name" type="text" value={this.state.newCocktailName} onChange={this.newCocktailNameFunction}/>
-                   
-                    Enter Recipe:   
-                    <input placeholder="recipe" type="text" value={this.state.newCocktailRecipe} onChange={this.newCocktailRecipeFunction}/>
-                    
-                    Enter Image URl:   
-                    <input placeholder="url" type="text" value={this.state.newCocktailImage} onChange={this.newCocktailImageFunction}/>
-                    
-                    <button onClick={this.saveInfo}>SAVE</button>
+            <div>
+            <div className="header">
+                <img src={gif} className="logo" id='img1' alt="" width='80px'/>
+                <img src={gif} className="logo" id='img2' alt="" width='80px'/>
+                <div className="top-title"> 
+                    COCKTAILS by Lily
+                    <div style={{'font-size':'50px'}}>Enter your cocktail!</div>
                 </div>
-
-                <div className="allCocktails">
-                    {this.state.cocktails}
-                </div>
-               
+            </div>
+            <div className="inputBar">
+                Enter Name:   
+                <input placeholder="name" type="text" value={this.state.newCocktailName} onChange={this.newCocktailNameFunction}/>
+                Enter Recipe:   
+                <input placeholder="recipe" type="text" value={this.state.newCocktailRecipe} onChange={this.newCocktailRecipeFunction}/>
+                Enter Image URl:   
+                <input placeholder="url" type="text" value={this.state.newCocktailImage} onChange={this.newCocktailImageFunction}/>
+                <button onClick={this.saveInfo}>SAVE</button>
+            </div>
+                {allCocktails}
             </div>
         )
     }

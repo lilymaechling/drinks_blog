@@ -1,38 +1,100 @@
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  font-family: 'Swanky and Moo Moo', cursive;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #374953;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header {
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.top-title {
+  font-family: Swanky and Moo Moo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 80px;
+  text-align: center;
+
+  color: #FFFEFE;
 }
+
+.sub-title {
+  font-family: Swanky and Moo Moo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+  text-align: center;
+
+  color: #FFFEFE;
+
+}
+
+.logo{
+  position: absolute;
+  width: 151px;
+  height: 113px;
+  mix-blend-mode: lighten;
+}
+
+#img1{
+  position: absolute;
+  left: 18%;
+}
+
+#img2{
+  position: absolute;
+  left: 70%;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+
+button {
+  background: #EA49EA;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  mix-blend-mode: normal;
+  border-radius: 20px;
+  border: none;
+
+  font-family: PT Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  text-align: center;
+
+  color: #FFFEFE;
+
+}
+
+input {
+  font-family: PT Sans;
+  font-style: normal;
+  font-weight: normal;
+  margin-left: 1%;
+  margin-right: 2%;
+
+  background: #C4C4C4;
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.inputBar{
+  position: absolute;
+  top: 30%;
+  left: 0%;
+  height: 20%;
+  width: 100%;
+  flex-direction: row;
+
+  font-size: 24px;
+
+} 

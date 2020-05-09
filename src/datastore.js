@@ -13,7 +13,7 @@ const config = {
   firebase.initializeApp(config);
 
   const database = firebase.database();
-  const ourAuth = firebase.auth();
+  //const ourAuth = firebase.auth();
 
   export function addCocktail(cocktailName, cocktailRecipe, cocktailImage) {
     const cocktails = firebase.database().ref('Cocktails/');
