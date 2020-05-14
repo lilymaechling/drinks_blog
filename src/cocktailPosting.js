@@ -44,9 +44,9 @@ class CocktailPosting extends Component {
             {this.props.name} 
             </div>
             <div className="drinkRecipe">
-            {this.props.recipe} 
+              <img src={this.props.image} alt="" className="drinkImage"/>
+              <h6 style={{'font-size':'20px'}}>{this.props.recipe}</h6>
             </div>
-            <img src={this.props.image} alt="" className="drinkImage"/>
             <div className="editOrDeleteButtons">
               {editBoxOrButton} 
               <button onClick={this.deletePosting} className="deleteButton">Delete</button>
