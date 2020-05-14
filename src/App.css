@@ -6,7 +6,7 @@
 
 .App-header {
   background-color: #374953;
-  min-height: 120vh;
+  min-height: 160vh;
   color: white;
 }
 
@@ -105,12 +105,9 @@ input {
   flex-direction: row;
   text-align: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-.allPostings CocktailPosting{
-  display: flex;
-  flex-direction: row; 
-}
 
 .posting {
   background-color: #6D7A81;
@@ -153,5 +150,4 @@ input {
   position: relative;
   flex-direction: row;
   top: 15%;
-  /* left: -20%; */
 }
