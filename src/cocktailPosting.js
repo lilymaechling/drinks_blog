@@ -30,6 +30,7 @@ class CocktailPosting extends Component {
         editBoxOrButton = (
           <div className="editbox">
             <input value={this.state.newTitle} onChange={this.changeNewTitle}/>
+            
             <button onClick={this.submit} className="submitBox"> Submit </button>
           </div>
         )
@@ -45,7 +46,7 @@ class CocktailPosting extends Component {
             <div className="drinkRecipe">
             {this.props.recipe} 
             </div>
-            <img src={this.props.image} alt="" className="drinkImage" width='100px'/>
+            <img src={this.props.image} alt="" className="drinkImage"/>
             <div className="editOrDeleteButtons">
               {editBoxOrButton} 
               <button onClick={this.deletePosting} className="deleteButton">Delete</button>

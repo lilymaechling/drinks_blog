@@ -16,6 +16,8 @@ class CocktailBoard extends Component{
     }
 
     getCocktails = (allCocktails) => {
+        console.log("cocktails coming back from firebase");
+        console.log(allCocktails)
         this.setState({cocktails: allCocktails});
     }
 
@@ -33,6 +35,7 @@ class CocktailBoard extends Component{
 
 
     delete = (id) => {
+        console.log(id);
         db.removeCocktail(id);
         db.fetchCocktails(this.getCocktails);
     }
@@ -49,6 +52,7 @@ class CocktailBoard extends Component{
     }
 
     save = (id, name) => {
+        console.log(id);
         db.updateName(id, name);
         db.fetchCocktails(this.getCocktails);
     }
@@ -58,7 +62,6 @@ class CocktailBoard extends Component{
         if(this.state.cocktails!=null){
           allCocktails = Object.keys(this.state.cocktails).map((id) => {
           const info = this.state.cocktails[id];
-          console.log(info)
           return <CocktailPosting
             save={this.save}
             delete={this.delete}
@@ -69,7 +72,6 @@ class CocktailBoard extends Component{
           }
         )
         }
-        console.log("all cocktails")
         console.log(allCocktails)
         return (
             <div>

@@ -15,33 +15,30 @@ const config = {
   const database = firebase.database();
   //const ourAuth = firebase.auth();
 
-  export function addCocktail(cocktailName, cocktailRecipe, cocktailImage) {
-    const cocktails = firebase.database().ref('Cocktails/');
-    cocktails.push({
-          cocktailName,
-          cocktailRecipe,
-          cocktailImage
+export function addCocktail(cocktailName, cocktailRecipe, cocktailImage) {
+  const cocktails = firebase.database().ref('Cocktails/');
+  cocktails.push({
+      cocktailName,
+      cocktailRecipe,
+      cocktailImage
     });
-    };
+  };
 
-  export function fetchCocktails(callback) {
+export function fetchCocktails(callback) {
   database.ref('Cocktails/').on('value', (snapshot) => {
     const allCocktails = snapshot.val();
-    console.log(allCocktails)
     callback(allCocktails);
   });
 } 
 
-  export function removeCocktail(cocktailID) {
+export function removeCocktail(cocktailID) {
   database.ref('Cocktails/').child(cocktailID).remove();
 
 }
 
 export function updateName(id, newName) {
-  database.ref('Cocktails/' + id).on('value', (snapshot) => {
-    const updates = {cocktailName: newName};
-    const whereToUpdate = database.ref('Cocktails/' + id);
-    whereToUpdate.update(updates);
-  });
+  const updates = {cocktailName: newName};
+  var whereToUpdate = database.ref('Cocktails/' + id);
+  whereToUpdate.update(updates);
 }
 
